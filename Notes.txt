@@ -1,0 +1,25 @@
+15:21 12-10-2024 03:46 to 43:32
+
+# Introduction to data structures
+
+It is a way to organize the data in memory. There are two types of data structures, linear and non-linear. Linear data structures are stored sequentially and are mostly single level, namely : Array, Linked list, Stack, Queue. In non-linear ds, The data elements inside are not in sequence, they are connected to each other through diff paths and they are multilevel, namely : Tree and graph.
+
+# Introduction to Algorithms
+
+A set of instructions to solve a given problem. Analysis is the method of finding most optimal algorithms, time complexity and space complexity are the two parameters covering it.
+
+Time Complexity : It is essentially just the time taken to run an algorithm.
+Space Complexity : The amount of memory or space taken by an algorithm to run.
+
+# Asymptotic analysis of an algorithm
+
+It helps in evaluating performance of an algorithm in terms of input size and its increase. we don't measure actual running time of an algorithm. It helps us in determining how time and space taken by an algorithm increase with input size.
+
+# Asymptotic notations : mathematical tools used to describe the running time of an algorithm in terms of input size, for example mileage of a car to determine best, average and worst case etc according to diff environments.
+
+# Types of Asymptotic notation :
+Ω Omega notation : expresses lower bound of an algorithm's running time, that is best amount of time case of it.
+O Big O notation : expresses the upper bound of an algorithm's running time, that is the worst amount of time case of it.
+Θ Theta notation : expresses both upper and lower bounds i.e. the average running time, this is the average.
+
+# Rules of Big O (O) Notation :
