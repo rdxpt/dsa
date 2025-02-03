@@ -136,6 +136,36 @@ public class LinkedList {
         return rsll;
     }
 
+    public ListNode nthFromEnd1(int n){
+        int len = 0;
+        ListNode current = head;
+        while(current!=null){
+            current = current.next;
+            len++;
+        }
+        current = head;
+        for(int i = 0; i<len-n; i++)current = current.next;
+        return current;
+    }
+    public ListNode nthFromEnd2(int n){
+        if(head == null)return null;
+        if(n<=0)throw new IllegalArgumentException("Invalid Value : "+n);
+        ListNode main = head;
+        ListNode ref = head;
+        int count = 0;
+
+        while(count<n){
+            if(ref==null)throw new IllegalArgumentException(n+" is greater than number of elements in sll.");
+            ref = ref.next;
+            count++;
+        }
+        while(ref!=null){
+            ref = ref.next;
+            main = main.next;
+        }
+        return main;
+    }
+
     public static void main(String[] args) {
         LinkedList sll = new LinkedList();
         sll.head = new ListNode(10);
@@ -200,10 +230,8 @@ public class LinkedList {
         System.out.println();
         System.out.println(lengthsll(sll));
 
-        searchResult res = sll.search(22);
-        System.out.println(res.bool+ ", "+ res.pos);
-
-        displaysll(sll.reverseSll());
+        System.out.println(sll.nthFromEnd1(4).data);
+        System.out.println(sll.nthFromEnd2(22).data);
         
     }
 }
