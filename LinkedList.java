@@ -166,6 +166,33 @@ public class LinkedList {
         return main;
     }
 
+    public void remDupSorted(){
+        if(head==null)return;
+        ListNode current = head;
+        while(current != null && current.next!= null){
+            if(current.data == current.next.data){
+                current.next = current.next.next;
+            }else{
+                current = current.next;
+            }
+        }
+    }
+
+    public void insertInSortedsll(int data){
+        ListNode newNode = new ListNode(data);
+        if(head==null){
+            head = newNode;
+        }
+        ListNode current = head;
+        ListNode prev = null;
+        while(current != null && current.data<newNode.data){
+            prev = current;
+            current = current.next;
+        }
+        prev.next = newNode;
+        newNode.next = current;
+    }
+
     public static void main(String[] args) {
         LinkedList sll = new LinkedList();
         sll.head = new ListNode(10);
