@@ -1,4 +1,3 @@
-import java.util.List;
 
 public class LinkedList {
 
@@ -193,72 +192,66 @@ public class LinkedList {
         newNode.next = current;
     }
 
-    public static void main(String[] args) {
-        LinkedList sll = new LinkedList();
-        sll.head = new ListNode(10);
-        ListNode second = new ListNode(1);
-        ListNode third = new ListNode(8);
-        ListNode fourth = new ListNode(11);
- 
-        sll.head.next = second;
+    public void deleteNode(int data){
+        ListNode current = head;
+        ListNode temp = null;
+        if(current != null && current.data == data){
+            head = current.next;
+            return;
+        }
+        while(current != null && current.data !=data){
+            temp = current;
+            current = current.next;
+        }
+        if(current==null)throw new IllegalArgumentException("Not Found");
+        temp.next = current.next;
+    }
+
+    public boolean detectLoop(){
+        if(head==null)throw new IllegalArgumentException("Empty sll");
+        ListNode fastPtr = head;
+        ListNode slowPtr = head;
+        while(fastPtr != null && slowPtr!=null){
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if(slowPtr == fastPtr)return true;
+        }
+        return false;
+    }
+
+    public void createLoop(){
+        ListNode first = new ListNode(1);
+        ListNode second = new ListNode(2);
+        ListNode third = new ListNode(3);
+        ListNode fourth = new ListNode(4);
+        ListNode fifth = new ListNode(5);
+        ListNode sixth = new ListNode(6);
+        
+        head = first;
+        first.next = second;
         second.next = third;
         third.next = fourth;
+        fourth.next = fifth;
+        fifth.next = sixth;
+        sixth.next = third;
+    }
 
+    public static void main(String[] args) {
+        LinkedList sll = new LinkedList();
+        sll.insertFirst(16);
+        sll.insertFirst(11);
+        sll.insertFirst(10);
+        sll.insertFirst(8);
+        sll.insertFirst(1);
         displaysll(sll);
+    
+        sll.deleteNode(10);
+
         System.out.println();
-        System.out.println(lengthsll(sll));
-
-        sll.insertFirst(21);
-
         displaysll(sll);
+
+        sll.createLoop();
         System.out.println();
-        System.out.println(lengthsll(sll));
-
-        sll.insertFirst(42);
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-
-        sll.insertFirst(25);
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-
-        sll.insertLast(16);
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-
-        sll.insertAnywhere(25, 3);
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-
-        sll.insertAnywhere(4, 1);
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-        
-        sll.deleteFirst();
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-
-        
-        sll.deleteLast();
-
-        displaysll(sll);
-        System.out.println();
-        System.out.println(lengthsll(sll));
-
-        System.out.println(sll.nthFromEnd1(4).data);
-        System.out.println(sll.nthFromEnd2(22).data);
-        
+        System.out.println(sll.detectLoop());
     }
 }
