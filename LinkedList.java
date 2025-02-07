@@ -1,7 +1,7 @@
 
 public class LinkedList {
 
-    private static ListNode head;
+    private ListNode head;
 
     private static class ListNode{
         private int data;
@@ -21,11 +21,12 @@ public class LinkedList {
             current = current.next;
         }
         System.out.print("null" );
+        System.out.println();
     }
 
     public static int lengthsll(LinkedList sll){
         int len = 0;
-        ListNode current = head;
+        ListNode current = sll.head;
         while(current != null){
             current = current.next;
             len++;
@@ -95,7 +96,7 @@ public class LinkedList {
     class searchResult{
         boolean bool;
         int pos;
-         public searchResult(boolean bool, int value){
+         public searchResult(boolean bool, int pos){
             this.bool = bool;
             this.pos = pos;      
          }
@@ -207,16 +208,30 @@ public class LinkedList {
         temp.next = current.next;
     }
 
-    public boolean detectLoop(){
+    public ListNode detectLoop(){
         if(head==null)throw new IllegalArgumentException("Empty sll");
         ListNode fastPtr = head;
         ListNode slowPtr = head;
         while(fastPtr != null && slowPtr!=null){
             fastPtr = fastPtr.next.next;
             slowPtr = slowPtr.next;
-            if(slowPtr == fastPtr)return true;
+            if(slowPtr == fastPtr)return pointOfLoop(slowPtr);
         }
-        return false;
+        return null;
+    }
+
+    public ListNode pointOfLoop(ListNode slowptr){
+        ListNode temp = head;
+        while(slowptr.next != temp.next){
+            slowptr = slowptr.next;
+            temp = temp.next;
+        }
+        return removeLoop(slowptr, temp);
+    }
+
+    public ListNode removeLoop(ListNode slowptr, ListNode temp){
+        slowptr.next = null;
+        return temp.next;
     }
 
     public void createLoop(){
@@ -236,22 +251,46 @@ public class LinkedList {
         sixth.next = third;
     }
 
+    public static LinkedList sortedMergeOf2SortedSlls(LinkedList sll1, LinkedList sll2){
+        LinkedList sortedMergedSll = new LinkedList();
+        ListNode p1 = sll1.head;
+        ListNode p2 = sll2.head;
+        while(p1 != null && p2 !=null){
+            if(p1.data<=p2.data){
+                sortedMergedSll.insertLast(p1.data);
+                p1 = p1.next;
+            }else{
+                sortedMergedSll.insertLast(p2.data);
+                p2 = p2.next;
+            }
+        }
+        while(p1!=null){
+            sortedMergedSll.insertLast(p1.data);
+            p1 = p1.next;
+        }
+        while(p2!=null){
+            sortedMergedSll.insertLast(p2.data);
+            p2 = p2.next;
+        }
+        return sortedMergedSll;
+    }
+
     public static void main(String[] args) {
-        LinkedList sll = new LinkedList();
-        sll.insertFirst(16);
-        sll.insertFirst(11);
-        sll.insertFirst(10);
-        sll.insertFirst(8);
-        sll.insertFirst(1);
-        displaysll(sll);
-    
-        sll.deleteNode(10);
+        LinkedList sll1 = new LinkedList();
+        sll1.insertFirst(7);
+        sll1.insertFirst(4);
+        sll1.insertFirst(1);
+        
+        displaysll(sll1);
 
-        System.out.println();
-        displaysll(sll);
+        LinkedList sll2 = new LinkedList();
+        sll2.insertFirst(8);
+        sll2.insertFirst(5);
+        sll2.insertFirst(2);
+        
+        displaysll(sll2);
 
-        sll.createLoop();
-        System.out.println();
-        System.out.println(sll.detectLoop());
+        LinkedList smsll = sortedMergeOf2SortedSlls(sll1, sll2);
+        displaysll(smsll);
     }
 }
