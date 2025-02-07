@@ -275,22 +275,44 @@ public class LinkedList {
         return sortedMergedSll;
     }
 
+    public static LinkedList add2Slls(LinkedList sll1, LinkedList sll2){
+        LinkedList sumOf2Sll = new LinkedList();
+        ListNode p1 = sll1.head;
+        ListNode p2 = sll2.head;
+        int carry = 0;
+        while(p1 != null && p2 !=null){
+            sumOf2Sll.insertLast((p1.data+p2.data)%10+carry);
+            carry = (p1.data+p2.data)/10;
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        while(p1!=null){
+            sumOf2Sll.insertLast(p1.data);
+            p1 = p1.next;
+        }
+        while(p2!=null){
+            sumOf2Sll.insertLast(p2.data);
+            p2 = p2.next;
+        }
+        return sumOf2Sll;
+    }
+
     public static void main(String[] args) {
         LinkedList sll1 = new LinkedList();
-        sll1.insertFirst(7);
+        sll1.insertFirst(9);
         sll1.insertFirst(4);
-        sll1.insertFirst(1);
+        sll1.insertFirst(7);
         
         displaysll(sll1);
 
         LinkedList sll2 = new LinkedList();
-        sll2.insertFirst(8);
+        sll2.insertFirst(6);
         sll2.insertFirst(5);
-        sll2.insertFirst(2);
         
         displaysll(sll2);
 
-        LinkedList smsll = sortedMergeOf2SortedSlls(sll1, sll2);
-        displaysll(smsll);
+        
+        LinkedList amsll = add2Slls(sll1, sll2);
+        displaysll(amsll);
     }
 }
