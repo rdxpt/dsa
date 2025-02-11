@@ -26,5 +26,8 @@ public class prime{
         num = scan.nextInt();
         System.out.println(primeByFor(num));
         scan.close();
+
+        System.out.println("Hello WOrld");
     }
+
 }
