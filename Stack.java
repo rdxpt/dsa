@@ -3,6 +3,39 @@ import java.util.EmptyStackException;
 public class Stack {
     private ListNode top;
     private int length;
+    
+    private static class Stack_Arr{
+        private int topArr;
+        private int[] arr;
+        public Stack_Arr(int cap){
+            topArr = -1;
+            arr = new int[cap];
+        }
+
+        public boolean isEmpty(){
+            return topArr == -1;
+        }
+        public boolean isFull(){
+            return arr.length-1 == topArr;
+        }
+        public int size(){
+            return topArr+1;
+        }
+
+        public void push(int data){
+            if(isFull())throw new RuntimeException("Stack is full !!!");
+            topArr++;
+            arr[topArr]=data;
+        }
+        public void pop(){
+            arr[topArr]=0;
+            topArr--;
+        }
+        public void displayStack_Arr(){
+            for(int i: arr)System.out.print(i+" ");
+            System.out.println();
+        }
+    }
 
     private class ListNode{
         private int data;
@@ -57,16 +90,14 @@ public class Stack {
     }
 
     public static void main(String[] args) {
-        Stack st = new Stack();
-        st.push(10);
-        st.push(15);
-        st.push(20);
-        st.push(25);
-        st.displayStack();
-        System.out.println(st.peek());
-        st.pop();
-        st.displayStack();
-        st.push(30);
-        st.displayStack();
+        Stack_Arr stack_Arr = new Stack_Arr(10);
+        stack_Arr.push(10);
+        stack_Arr.push(10);
+        stack_Arr.push(10);
+        stack_Arr.push(10);
+        stack_Arr.displayStack_Arr();
+        stack_Arr.pop();
+        stack_Arr.displayStack_Arr();
+
     }
 }
