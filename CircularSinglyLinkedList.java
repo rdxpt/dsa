@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class CircularSinglyLinkedList {
     private ListNode last;
     private int length;
@@ -46,12 +48,10 @@ public class CircularSinglyLinkedList {
         if(isEmpty()){
             temp.next = temp;
             last = temp;
-            length++;
-            return;
+        }else{
+            temp.next = last.next;
+            last.next = temp;
         }
-        ListNode buffer = last.next;
-        last.next = temp;
-        temp.next = buffer;
         length++;
     }
     public void insertLast(int value){
@@ -59,18 +59,39 @@ public class CircularSinglyLinkedList {
         if(isEmpty()){
             temp.next = temp;
             last = temp;
-            length++;
-            return;
+        }else{
+            temp.next = last.next;
+            last.next = temp;
+            last = temp;
+        }
+    
+        length++;
+    }
+
+    public ListNode deleteFirst(){
+        if(isEmpty())throw new NoSuchElementException();
+        ListNode temp = last.next;
+        if(last.next == last)last=null;
+        else last.next = temp.next;
+        temp.next=null;
+        length--;
+        return temp;
+    }
+    public void deleteLast(){
+        if(isEmpty())throw new NoSuchElementException();
+        ListNode temp = last;
+        if(last.next == last){
+            last = null;
+        }else{
+            while(temp.next!=last)temp=temp.next;
         }
         temp.next = last.next;
-        last.next = temp;
-        length++;
+        last = temp;
+        length--;
     }
 
     public static void main(String[] args) {
         CircularSinglyLinkedList csll = new CircularSinglyLinkedList();
-
-        
 
         csll.insertLast(17);
         csll.displayCSLL();
@@ -78,7 +99,10 @@ public class CircularSinglyLinkedList {
         csll.insertFirst(10);
         csll.displayCSLL();
 
-        csll.insertLast(17);
+        csll.insertLast(19);
+        csll.displayCSLL();
+
+        csll.deleteFirst();
         csll.displayCSLL();
 
     }
