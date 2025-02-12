@@ -126,5 +126,7 @@ public class DoublyLinkedList {
     dll2.displayDllFw();
     dll2.deleteFirst();
     dll2.displayDllFw();
+
+    System.out.println(dll2.length);
    }
 }
