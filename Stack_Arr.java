@@ -26,6 +26,12 @@ public class Stack_Arr<T>{
         if(isEmpty())throw new RuntimeException("Stack is Full");
         return arr[topArr--];
     }
+    public T peek(){
+        if(isEmpty())throw new RuntimeException("Stack is Empty");
+        return arr[topArr];
+    }
+
+
     public void displayStack_Arr(){
         for(int i=0; i<=topArr; i++)System.out.print(arr[i]+" ");
         System.out.println();
@@ -40,5 +46,6 @@ public class Stack_Arr<T>{
 
         System.out.println("Popped: " + intStack.pop()); // Output: Popped: 30
         intStack.displayStack_Arr(); // Output: 10 20
+        System.out.println(intStack.peek());
     }
 }
