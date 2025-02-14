@@ -16,6 +16,10 @@ public class Stack_Arr<T>{
     public int size(){
         return topArr+1;
     }
+    public void displayStack_Arr(){
+        for(int i=0; i<=topArr; i++)System.out.print(arr[i]+" ");
+        System.out.println();
+    }
 
     public void push(T data){
         if(isFull())throw new RuntimeException("Stack is full !!!");
@@ -30,13 +34,6 @@ public class Stack_Arr<T>{
         if(isEmpty())throw new RuntimeException("Stack is Empty");
         return arr[topArr];
     }
-
-
-    public void displayStack_Arr(){
-        for(int i=0; i<=topArr; i++)System.out.print(arr[i]+" ");
-        System.out.println();
-    }
-
     public static void main(String[] args) {
         Stack_Arr<Integer> intStack = new Stack_Arr<>(5);
         intStack.push(10);

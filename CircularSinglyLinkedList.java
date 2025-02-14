@@ -24,14 +24,6 @@ public class CircularSinglyLinkedList {
     public boolean isEmpty(){
         return length == 0;
     }
-    public void createCSLL(){
-        ListNode first = new ListNode(1);
-        first.next = first;
-
-        last=first;
-        length = 1;
-    }
-
     public void displayCSLL(){
         if(last==null)return;
         ListNode first = last.next;
@@ -43,6 +35,13 @@ public class CircularSinglyLinkedList {
         System.out.println();
     }
 
+    public void createCSLL(){
+        ListNode first = new ListNode(1);
+        first.next = first;
+
+        last=first;
+        length = 1;
+    }
     public void insertFirst(int value){
         ListNode temp = new ListNode(value);
         if(isEmpty()){

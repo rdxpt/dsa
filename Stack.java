@@ -24,6 +24,16 @@ public class Stack {
     public boolean isEmpty(){
         return length == 0;
     }
+    public void displayStack(){
+        if(isEmpty())throw new EmptyStackException();
+        ListNode temp = top;
+        System.out.println("*****");
+        while(temp!=null){
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+        System.out.println("*****");
+    }
 
     public void push(int data){
         ListNode temp = new ListNode(data);
@@ -43,17 +53,6 @@ public class Stack {
     public int peek(){
         if(isEmpty())throw new EmptyStackException();
         return top.data;
-    }
-
-    public void displayStack(){
-        if(isEmpty())throw new EmptyStackException();
-        ListNode temp = top;
-        System.out.println("*****");
-        while(temp!=null){
-            System.out.println(temp.data);
-            temp = temp.next;
-        }
-        System.out.println("*****");
     }
 
     public static void main(String[] args) {
