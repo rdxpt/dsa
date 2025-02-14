@@ -1,14 +1,14 @@
 import java.util.NoSuchElementException;
 
-public class Queue {
+public class Queue<T> {
     private ListNode front;
     private ListNode rear;
     private int length;
 
     public class ListNode{
-        private int data;
+        private T data;
         private ListNode next;
-        public ListNode(int data){
+        public ListNode(T data){
             this.data = data;
             this.next = null;
         }
@@ -39,7 +39,7 @@ public class Queue {
         System.out.println();
     }
 
-    public void enqueue(int data){
+    public void enqueue(T data){
         ListNode temp = new ListNode(data);
         if(isEmpty()){
             front = temp;
@@ -49,7 +49,7 @@ public class Queue {
         rear = temp;
         length++;
     }
-    public int dequeue(){
+    public T dequeue(){
         if(isEmpty())throw new NoSuchElementException();
         ListNode temp = front;
         front = front.next;
@@ -62,7 +62,7 @@ public class Queue {
 
 
     public static void main(String[] args) {
-        Queue q = new Queue();
+        Queue<Integer> q = new Queue<>();
         q.enqueue(10);
         q.displayQ();
         q.enqueue(11);
