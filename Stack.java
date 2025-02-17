@@ -1,14 +1,14 @@
 import java.util.EmptyStackException;
 
-public class Stack {
+public class Stack<T> {
     private ListNode top;
     private int length;
 
     private class ListNode{
-        private int data;
+        private T data;
         private ListNode next;
 
-        public ListNode(int data){
+        public ListNode(T data){
             this.data = data;
         }
     }
@@ -35,22 +35,22 @@ public class Stack {
         System.out.println("*****");
     }
 
-    public void push(int data){
+    public void push(T data){
         ListNode temp = new ListNode(data);
         temp.next = top;
         top = temp;
         length++;
     }
 
-    public int pop(){
+    public T pop(){
         if(isEmpty())throw new EmptyStackException();
-        int temp = top.data;
+        T temp = top.data;
         top = top.next;
         length--;
         return temp;
     }
 
-    public int peek(){
+    public T peek(){
         if(isEmpty())throw new EmptyStackException();
         return top.data;
     }
