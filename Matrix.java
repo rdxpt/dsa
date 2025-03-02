@@ -80,7 +80,7 @@ public class Matrix{
                 for(i=c-l; i>=l; i--)System.out.print(mat[r-l][i]);
             }
             if(l<c){
-                for(){}
+                return;
             }
         }
     }
