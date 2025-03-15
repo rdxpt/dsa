@@ -2,7 +2,7 @@ package problem75LC;
 
 public class ReverseWords {
     public static String reverseWords(String s){
-        String[] arr = s.trim.split("//s+");
+        String[] arr = s.trim().split("//s+");
         int l = 0, r = arr.length-1;
         while (l<=r) {
             String temp =  arr[l];
