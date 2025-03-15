@@ -104,10 +104,30 @@ public class Sort {
         }
     }
 
+    public static int partition(int[] arr, int low, int high){
+        int  pivot = arr[high];
+        int i = low, j = low;
+        while(i<=high){
+            if(arr[i]<=pivot){
+                swap(arr, i, j);
+                j++;
+            }
+            i++;
+        }
+        return j-1;
+    }
+    public static void quickSort(int arr[], int low, int high){
+        if(low<high){
+            int p = partition(arr, low, high);
+            quickSort(arr, low, p-1);
+            quickSort(arr, p+1, high);
+        }
+    }
+
 
     public static void main(String[] args) {
-        int[] arr = { 1, 18, 55, 60, 111, 112 };
-        int[] temp = mergeSort(arr);
-        display(temp);
+        int[] arr = { 67, 1,55, 12, 2, 11, 157, 112, 88 };
+        quickSort(arr, 0, arr.length-1);
+        display(arr);
     }
 }
