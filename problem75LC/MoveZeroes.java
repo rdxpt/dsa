@@ -1,11 +1,18 @@
 package problem75LC;
 
 public class MoveZeroes {
+    public static void display(int[] arr){
+        for(int i: arr){
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
+
     public static void moveZerosInOrder(int[] nums){
         int n = nums.length;
         int nonZeroIndex = 0;
         for(int i=0; i<n; i++){
-            if(nums[i]!=0) nums[nonZeroIndex++]=nums[i++];
+            if(nums[i]!=0) nums[nonZeroIndex++]=nums[i];
         }
         while(nonZeroIndex<n)nums[nonZeroIndex++]=0;
     }
@@ -25,6 +32,9 @@ public class MoveZeroes {
     }
     public static void main(String[] args) {
         int[] nums = {1, 0, 4, 1, 1, 6, 0};
+        display(nums);
+        moveZerosInOrder(nums);
+        display(nums);
         
     }
 }
