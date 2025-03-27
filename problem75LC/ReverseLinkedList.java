@@ -1,7 +1,5 @@
 package problem75LC;
 
-import java.util.*;
-
 import problem75LC.OddEvenLinekdList.ListNode;
 
 public class ReverseLinkedList {

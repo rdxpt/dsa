@@ -1,8 +1,5 @@
 package problem75LC;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public class GreatestCommonDivisorOfStrings {
     public String gcdOfString(String str1, String str2){
         if(!(str1+str2).equals(str2+str1))return "";
