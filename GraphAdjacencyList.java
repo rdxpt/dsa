@@ -6,6 +6,9 @@ public class GraphAdjacencyList {
     LinkedList<Integer>[] adj;
     private int V;
     private int E;
+    private boolean[] visited = new boolean[V];
+    private int[] comptId = new int[V];
+    private int count = 0;
 
     public GraphAdjacencyList(int nodes){
         this.V = nodes;
@@ -81,6 +84,31 @@ public class GraphAdjacencyList {
                 dfs(w, visited);
             }
         }
+    }
+
+    public void dfsConnectedComponents(){
+        
+        for(int v=0; v<V; v++){
+            if(!visited[v]){
+                dfsConnectedComponents(v, visited, comptId, count);
+                count++;
+            }
+        }
+    }
+    public void dfsConnectedComponents(int v, boolean[] visited, int[] comptId, int count){
+        visited[v] = true;
+        comptId[v] = count;
+        for(int w : adj[v]){
+            if(!visited[w]){
+                dfsConnectedComponents(w, visited, comptId, count);
+            }
+        }
+    }
+    public int getCountCC(){
+        return count;
+    }
+    public boolean isConnected(int x, int y){
+        return comptId[x]==comptId[y];
     }
 
     public static void main(String[] args) {
