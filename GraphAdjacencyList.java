@@ -10,6 +10,7 @@ public class GraphAdjacencyList {
     private int[] comptId = new int[V];
     private int count = 0;
 
+    @SuppressWarnings("unchecked")
     public GraphAdjacencyList(int nodes){
         this.V = nodes;
         this.E=0;
