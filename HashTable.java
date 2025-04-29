@@ -15,10 +15,10 @@ public class HashTable {
 
     private class HashNode {
         private Integer key;
+        @SuppressWarnings("unused")
         private String value;
         private HashNode next;
 
-        @SuppressWarnings("unused")
         public HashNode(Integer key, String value) {
             this.key = key;
             this.value = value;
