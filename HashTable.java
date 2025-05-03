@@ -33,6 +33,9 @@ public class HashTable {
     }
     
     public void put(Integer key, String value){
+        if(key==null || value==null){
+            throw new IllegalArgumentException("Key or value cannot be null");
+        }
         int bucketIndex = getBucketIndex(key);
         HashNode head = buckets[bucketIndex];
         while(head!=null){

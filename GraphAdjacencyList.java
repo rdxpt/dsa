@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class GraphAdjacencyList {
     LinkedList<Integer>[] adj;
-    private int V;
-    private int E;
+    private int V;      // size of array
+    private int E;      // size of data
     private boolean[] visited = new boolean[V];
     private int[] comptId = new int[V];
     private int count = 0;

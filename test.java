@@ -1,114 +1,32 @@
-public class test<T> {
-    private TreeNode root;
+public class test{
+    public static void dfs(char[][] grid, int i, int j, boolean[][ ]visited) {
+        int m = grid.length;
+        int n = grid[0].length;
 
-    public class TreeNode {
-        private T data;
-        private TreeNode left;
-        private TreeNode right;
-
-        public TreeNode(T data) {
-            this.data = data;
+        if(i<0 || j<0 || i>=m || j>=n || visited[i][j] || grid[i][j]!='1'){
+            return;
         }
-    }
-    
-    @SuppressWarnings("unchecked")
-    public void createBinaryTree() {
-        TreeNode first = new TreeNode((T) Integer.valueOf(1));
-        TreeNode second = new TreeNode((T) Integer.valueOf(2));
-        TreeNode third = new TreeNode((T) Integer.valueOf(3));
-        TreeNode fourth = new TreeNode((T) Integer.valueOf(4));
-        TreeNode fifth = new TreeNode((T) Integer.valueOf(5));
-        TreeNode sixth = new TreeNode((T) Integer.valueOf(6));
-        TreeNode seventh = new TreeNode((T) Integer.valueOf(7));
 
-        root = first;
-        first.left = second;
-        first.right = third;
+        visited[i][j] = true;
 
-        second.left = fourth;
-        second.right = fifth;
-        
-        third.left = sixth;
-        third.right = seventh;
+        dfs(grid, i+1, j, visited);
+        dfs(grid, i-1, j, visited);
+        dfs(grid, i, j+1, visited);
+        dfs(grid, i, j-1, visited);
     }
-
-    public void preOrder(TreeNode root){
-        if(root==null)return;
-        System.out.print(root.data+" ");
-        preOrder(root.left);
-        preOrder(root.right);
-    }
-    public void inOrder(TreeNode root){
-        if(root==null)return;
-        inOrder(root.left);
-        System.out.print(root.data+" ");
-        inOrder(root.right);
-    }
-    public void postOrder(TreeNode root){
-        if(root==null)return;
-        postOrder(root.left);
-        postOrder(root.right);
-        System.out.print(root.data+" ");
-    }
-
-    public void preOrderIts(TreeNode root){
-        if(root==null) return;
-        Stack<TreeNode> stack = new Stack<>();
-        stack.push(root);
-
-        while(!stack.isEmpty()){
-            TreeNode temp = stack.pop();
-            System.out.println(temp.data);
-            if(temp.right!=null) stack.push(temp.right);
-            if(temp.left!=null) stack.push(temp.left);
-        }
-    }
-    public void inOrderIts(TreeNode root){
-        if(root==null)return;
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode temp = root;
-
-        while(!stack.isEmpty() || temp != null){
-            if(temp!=null){
-                stack.push(temp);
-                temp = temp.left;
-            } else {
-                temp = stack.pop();
-                System.out.println(temp.data+" ");
-                temp = temp.right;
-            }
-        }
-    }
-    public void postOrderIts(TreeNode root){
-        if(root==null)return;
-        Stack<TreeNode> stack = new Stack<>();
-        TreeNode current = root;
-        while(!stack.isEmpty() || current != null){
-            if(current!=null){
-                stack.push(current);
-                current = current.left;
-            } else {
-                TreeNode temp = stack.peek().right;
-                if(temp == null){
-                    temp = stack.pop();
-                    System.out.print(temp.data+" ");
+    public static int numIslands(char[][] grid){
+        int numIslands = 0;
+        int m = grid.length;
+        int n = grid[0].length;
+        boolean[][] visited = new boolean[m][n];
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(!visited[i][j] && grid[i][j]==1){
+                    dfs(grid, i, j, visited);
+                    numIslands++;
                 }
             }
         }
-
-    }
-
-    public static void main(String[] args) {
-        test<Integer> bt = new test<>();
-        bt.createBinaryTree();
-
-        bt.preOrder(bt.root);
-        System.out.println();
-        bt.inOrder(bt.root);
-        System.out.println();  
-        bt.postOrder(bt.root);
-        System.out.println();
-
-        bt.inOrderIts(bt.root);
+        return numIslands;
     }
 }
