@@ -34,9 +34,15 @@ public class HashTable {
     public String toString(){
         StringBuilder str = new StringBuilder();
         for(int i=0; i<numOfBuckets; i++){
-
+            str.append(i+" : ");
+            HashNode head = buckets[i];
+            while(head!=null){
+                str.append(head.key+", "+head.value+" -> ");
+                head = head.next;
+            }
+            str.append("\n");
         }
-        return null;
+        return str.toString();
     }
     
     public void put(Integer key, String value){
@@ -100,6 +106,16 @@ public class HashTable {
 
 
     public static void main(String[] args) {
-        
+        HashTable hash = new HashTable();
+        hash.put(36, "Harsh");
+        hash.put(7, "Shivam");
+        hash.put(58, "Agrim");
+        hash.put(32,"Utkarsh");
+        hash.put(13, "Tushar");
+        hash.put(40, "Shashwat");
+        hash.put(49, "Rai");
+        hash.put(27, "Ruchira");
+        System.out.println(hash);
+        System.out.println(hash.get(7));
     }
 }
