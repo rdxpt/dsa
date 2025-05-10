@@ -1,32 +1,87 @@
 public class test{
-    public static void dfs(char[][] grid, int i, int j, boolean[][ ]visited) {
-        int m = grid.length;
-        int n = grid[0].length;
+    private HashNode[] buckets;
+    private int numOfBuckets;
+    private int size;
 
-        if(i<0 || j<0 || i>=m || j>=n || visited[i][j] || grid[i][j]!='1'){
-            return;
-        }
-
-        visited[i][j] = true;
-
-        dfs(grid, i+1, j, visited);
-        dfs(grid, i-1, j, visited);
-        dfs(grid, i, j+1, visited);
-        dfs(grid, i, j-1, visited);
+    public test(){
+        this(10);
     }
-    public static int numIslands(char[][] grid){
-        int numIslands = 0;
-        int m = grid.length;
-        int n = grid[0].length;
-        boolean[][] visited = new boolean[m][n];
-        for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
-                if(!visited[i][j] && grid[i][j]==1){
-                    dfs(grid, i, j, visited);
-                    numIslands++;
-                }
-            }
+    public test(int capacity){
+        this.numOfBuckets = capacity;
+        this.buckets = new HashNode[numOfBuckets];
+        this.size = 0;
+    }
+
+    private class HashNode{
+        private Integer key;
+        private String value;
+        private HashNode next;
+
+        public HashNode(Integer key, String value){
+            this.key = key;
+            this.value = value;
         }
-        return numIslands;
+    }
+
+    public int size(){
+        return size;
+    }
+    public boolean isEmpty(){
+        return size==0;
+    }
+
+    public void put(Integer key, String value){
+        if(key==null || value==null) throw new IllegalArgumentException();
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+        while(head!=null){
+            if(head.key.equals(key)){
+                head.value = value;
+                return;
+            }
+            head = head.next;
+        }
+        size++;
+        head = buckets[bucketIndex];
+        HashNode node = new HashNode(key, value);
+        node.next = head;
+        buckets[bucketIndex] = node;
+    }
+    private int getBucketIndex(Integer key){
+        return key%numOfBuckets;
+    }
+
+    public String get(Integer key){
+        if(key == null) throw new IllegalArgumentException();
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+        while(head!=null){
+            if(head.key.equals(key))return head.value;
+            head = head.next;
+        }
+        return null;
+    }
+
+    public String remove(Integer key){
+        if(key == null) throw new IllegalArgumentException();
+
+        int bucketIndex = getBucketIndex(key);
+        HashNode head = buckets[bucketIndex];
+
+        if(head==null) return null;
+
+        if(head.key.equals(key)){
+            buckets[bucketIndex] = head.next;
+            return head.value;
+        }
+        while(head.next!=null){
+            if(head.next.key.equals(key)){
+                String value = head.next.value;
+                head.next = head.next.next;
+                return value;
+            }
+            head = head.next;
+        }
+        return null;
     }
 }
