@@ -53,5 +53,9 @@ public class Trie {
         trie.insert("cab");
         trie.insert("son");
         trie.insert("so");
+        System.out.println("All words inserted successfully.");
+        System.out.println(trie.search("so"));
+        System.out.println(trie.search("s"));
+        System.out.println(trie.search("dada"));
     }
 }
