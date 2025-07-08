@@ -13,4 +13,16 @@ public class IsSubsequence {
         }
         return true;
     }
+    public static Boolean isSubseq(String str, String seq){
+        int i=0;
+        int j=0;
+        while(i<str.length() && j<seq.length()){
+            if(str.charAt(i)==seq.charAt(j))j++;
+            i++;
+        }
+        return j== seq.length();
+    }
+/*  this one is not about finding it in there, but like
+ finiding a sequence in a string when we remove some
+ charachters given the sequence remains intact  */
 }
