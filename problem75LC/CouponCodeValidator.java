@@ -3,7 +3,6 @@ package problem75LC;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.HashMap;
 
 public class CouponCodeValidator {
     public List<String> validateCoupons(String[] code, String[] businessLine, boolean[] isActive) {

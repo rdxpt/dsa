@@ -12,8 +12,7 @@ public class Interval {
         this.end = end;
     }
 
-    public static void main(String[] args) {
-        Interval interval = new Interval(10, 15);
+    public static void main(String[] args) {        
     }
 
     public List<Interval> merge(List<Interval> intervals){
