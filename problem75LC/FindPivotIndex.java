@@ -1,3 +1,21 @@
+﻿/**
+ * F in dP iv ot In de x
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Define a DP state + transition; decide memoization vs tabulation.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: DP
+ */
 package problem75LC;
 
 public class FindPivotIndex {
@@ -17,3 +35,4 @@ public class FindPivotIndex {
         return -1;
     }
 }
+

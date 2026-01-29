@@ -1,3 +1,21 @@
+﻿/**
+ * G re at es tC om mo nD iv is or Of St ri ng s
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use frequency maps / two pointers / stack depending on pattern constraints.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: String
+ */
 package problem75LC;
 
 public class GreatestCommonDivisorOfStrings {
@@ -16,3 +34,4 @@ public class GreatestCommonDivisorOfStrings {
         
     }
 }
+

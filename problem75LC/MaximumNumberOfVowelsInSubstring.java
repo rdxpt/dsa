@@ -1,3 +1,21 @@
+﻿/**
+ * M ax im um Nu mb er Of Vo we ls In Su bs tr in g
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use recursion (DFS) or iterative traversal; watch for null/base cases.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Tree, String
+ */
 package problem75LC;
 
 public class MaximumNumberOfVowelsInSubstring {
@@ -23,3 +41,4 @@ public class MaximumNumberOfVowelsInSubstring {
         System.out.println(maxVowels("leetcode", 3));
     }
 }
+

@@ -1,3 +1,21 @@
+﻿/**
+ * S ta ck_A rr
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use a stack to maintain a monotonic property or handle nested structure.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Stack
+ */
 public class Stack_Arr<T>{
     private int topArr;
     private T[] arr;

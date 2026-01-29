@@ -1,3 +1,21 @@
+﻿/**
+ * Q ue ue
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use a queue for FIFO order; commonly used for BFS / sliding window.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Queue
+ */
 import java.util.NoSuchElementException;
 
 public class Queue<T> {
@@ -81,3 +99,4 @@ public class Queue<T> {
         q.displayQ();
     }
 }
+

@@ -1,3 +1,21 @@
+﻿/**
+ * B in ar yS ea rc hT re e
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use recursion (DFS) or iterative traversal; watch for null/base cases.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Tree, Binary Search
+ */
 public class BinarySearchTree {
 
     private TreeNode root;
@@ -91,3 +109,4 @@ public class BinarySearchTree {
         System.out.println(bst.validate());
     }
 }
+

@@ -1,3 +1,21 @@
+﻿/**
+ * S ea rc hS ug ge st io ns Sy st em
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Binary-search on answer/index; maintain correct invariants for low/high.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Binary Search
+ */
 package problem75LC;
 
 import java.util.ArrayList;
@@ -51,3 +69,4 @@ public class SearchSuggestionsSystem {
     }
     */
 }
+

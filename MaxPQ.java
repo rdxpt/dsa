@@ -1,3 +1,21 @@
+﻿/**
+ * M ax PQ
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use a heap/PQ to repeatedly extract min/max; great for top-k and scheduling.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Heap/PQ
+ */
 public class MaxPQ{
 
     Integer[] heap;
@@ -85,3 +103,4 @@ public class MaxPQ{
         pq.display();
     }
 }
+

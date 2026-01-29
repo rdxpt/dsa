@@ -1,3 +1,21 @@
+﻿/**
+ * G ra ph Ad ja ce nc yM at ri x
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Model as graph; pick BFS for shortest path (unweighted) or DFS for traversal/components.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Graph, Matrix/Grid
+ */
 import java.util.LinkedList;
 import java.util.Queue;
 

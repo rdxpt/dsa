@@ -1,3 +1,21 @@
+﻿/**
+ * T ri e
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use recursion (DFS) or iterative traversal; watch for null/base cases.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Tree
+ */
 public class Trie {
 
     private TrieNode root;
@@ -59,3 +77,4 @@ public class Trie {
         System.out.println(trie.search("dada"));
     }
 }
+

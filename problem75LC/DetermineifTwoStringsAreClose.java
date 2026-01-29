@@ -1,3 +1,21 @@
+﻿/**
+ * D et er mi ne if Tw oS tr in gs Ar eC lo se
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use frequency maps / two pointers / stack depending on pattern constraints.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: String
+ */
 package problem75LC;
 
 import java.util.ArrayList;
@@ -25,3 +43,4 @@ public class DetermineifTwoStringsAreClose {
         return values1.equals(values2);   
     }
 }
+

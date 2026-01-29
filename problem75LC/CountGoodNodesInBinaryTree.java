@@ -1,3 +1,21 @@
+﻿/**
+ * C ou nt Go od No de sI nB in ar yT re e
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use recursion (DFS) or iterative traversal; watch for null/base cases.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Tree
+ */
 package problem75LC;
 
 public class CountGoodNodesInBinaryTree {
@@ -35,3 +53,4 @@ public class CountGoodNodesInBinaryTree {
         return good;
     }
 }
+

@@ -1,3 +1,21 @@
+﻿/**
+ * I mp le me nt Tr ie
+ *
+ * Purpose:
+ * - LeetCode practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Use recursion (DFS) or iterative traversal; watch for null/base cases.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Tree
+ */
 package problem75LC;
 
 public class ImplementTrie {
@@ -56,3 +74,4 @@ public class ImplementTrie {
         return true;
     }
 }
+

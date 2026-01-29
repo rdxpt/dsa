@@ -1,3 +1,21 @@
+﻿/**
+ * N um be rO fI sl an ds
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Summarize the core trick you used (2â€“3 bullets) after solving once.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: DSA
+ */
 public class NumberOfIslands {
     public static void dfs(char[][] grid, int i, int j, boolean[][] visited){
         int m = grid.length;
@@ -8,7 +26,6 @@ public class NumberOfIslands {
         }
 
         visited[i][j]=true;
-
         dfs(grid, i+1, j, visited);
         dfs(grid, i-1, j, visited);
         dfs(grid, i, j+1, visited);
@@ -42,3 +59,4 @@ public class NumberOfIslands {
         System.out.println("Number of islands: " + result);
     }
 }
+

@@ -1,3 +1,21 @@
+﻿/**
+ * C ir cu la rS in gl yL in ke dL is t
+ *
+ * Purpose:
+ * - DSA practice solution (revision notes at top).
+ *
+ * Key idea:
+ * - Summarize the core trick you used (2â€“3 bullets) after solving once.
+ *
+ * Complexity:
+ * - Time:  See method-level notes (depends on approach).
+ * - Space: See method-level notes (depends on approach).
+ *
+ * Edge cases / gotchas:
+ * - Write the tricky cases you tend to forget.
+ *
+ * Tags: Linked List
+ */
 import java.util.NoSuchElementException;
 
 public class CircularSinglyLinkedList {
@@ -106,3 +124,4 @@ public class CircularSinglyLinkedList {
 
     }
 }
+
