@@ -1,4 +1,8 @@
-﻿/**
+﻿import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
  * t es t
  *
  * Purpose:
@@ -17,64 +21,71 @@
  * Tags: DSA
  */
 public class test{
-    public static int partition(int[] arr, int low, int high){
-        int pivot = arr[high];
-        int i=low, j=low;
-        while(i<high){
-            if(arr[i]<=pivot){
-                swap(arr, i, j);
-                j++;
-            }
-            i++;
-        }
-        return j-1;
+    public static int maxActivated(int[][] points){
+        int x = points[0][0];
+        int xC = 1;
+        int y = points[0][1];
+        int yC = points[]
     }
-    public static void quickSort(int[] arr, int low, int high){
-        if(low<high){
-            int p = partition(arr, low, high);
-            quickSort(arr, low, p-1);
-            quickSort(arr, p+1, high);
-        }
-    }
-
-    public static void merge(int[] arr, int[] temp, int low, int mid, int high){
-        for(int i=low; i<=high; i++)temp[i] = arr[i];
-        int i=low, j=mid+1, k=low;
-        while(i<mid && j<high){
-            if(temp[i]<=temp[j]){
-                arr[k] = temp[i];
-                i++;
-            } else {
-                arr[k] = temp[j];
-                j++;
-            }
-            k++;
-        }
-        while(i<=mid){
-            arr[k++] = temp[i++];
-        }
-        while(j<=high){
-            arr[k++] = temp[j++];
-        }
-    }
-
-    public static int[] mergeSort(int[] arr){
-        int[] temp = new int[arr.length];
-        mergeSort(arr, temp, 0, arr.length-1);
-        return temp;
-    }
-    public static void mergeSort(int[] arr, int[] temp, int low, int high){
-        if(low<high){
-            int mid = low+ (high-low)/2;
-            mergeSort(arr, temp, low, mid );
-            mergeSort(arr, temp, mid+1, high);
-            merge(arr, temp, low, mid, high);
-        }
-    }
-
-    public static void swap(int[] arr, int i, int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+    public static void main(String[] args) {
     }
 }
+
+/*
+public class ImplementTrie {
+    private TrieNode root;
+    public ImplementTrie() {
+        root = new TrieNode();
+    }
+    private class TrieNode {
+        private TrieNode[] children;
+        private boolean isWord;
+
+        public TrieNode(){
+            this.children = new TrieNode[26];
+            this.isWord = false;
+        }
+    }
+    
+    public void insert(String word) {
+        if(word == null || word.isEmpty()) return;
+        word = word.toLowerCase();
+        TrieNode current = root;
+        for(int i=0; i<word.length(); i++){
+            char c = word.charAt(i);
+            if(current.children[c-'a']== null){
+                current.children[c-'a'] = new TrieNode();
+            }
+            current = current.children[c-'a']
+        }
+        current.isWord = true;
+
+    }
+    
+    public boolean search(String word) {
+        if(word==null | word.isEmpty()) return false;
+        word = word.toLowerCase();
+        TrieNode current = root;
+        for(int i=0; i<word.length(); i++){
+            char c = word.charAt(i);
+            int index = c-'a';
+            if(current.children[index]==null)return false;
+            else current = current.children[index];
+        }
+        return current.isWord;
+    }
+    
+    public boolean startsWith(String prefix) {
+        if(prefix==null | prefix.isEmpty()) return false;
+        prefix = prefix.toLowerCase();
+        TrieNode current = root;
+        for(int i=0; i<prefix.length(); i++){
+            char c = prefix.charAt(i);
+            int index = c-'a';
+            if(current.children[index]==null)return false;
+            else current = current.children[index];
+        }
+        return true;
+    }
+}
+ */

@@ -23,22 +23,28 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ThreeSum {
-    public static void threeSum(int[] arr, int target){
+    public static List<List<Integer>> threeSum(int[] arr){
+        List<List<Integer>> result = new ArrayList<>();
         Arrays.sort(arr);
-        for(int i=0; i<arr.length; i++){
-            int j=i+1;
+
+        for(int i=0; i< arr.length - 2; i++){
+            if(i>0 && arr[i] == arr[i-1]) continue;
+
+            int j = i + 1;
             int k = arr.length-1;
+
             while(j<k){
-                int sum = arr[i]+arr[j]+arr[k];
-                if(sum==target){
-                    System.out.println(arr[i]+", "+arr[j]+", "+arr[k]);
-                    j++;
-                    k--;
-                }
-                if(sum>target)k--;
-                if(sum<target)j++;
+                int sum = arr[i] + arr[j] + arr[k];
+                if(sum == 0){
+                    result.add(Arrays.asList(arr[i], arr[j], arr[k]));
+                    while(arr[j]==arr[j+1])j++;
+                    while(arr[k]==arr[k-1])k--;
+                    j++; k--;
+                } else if(sum < 0) j++;
+                else k--;
             }
         }
+        return result;
     }
 
     public List<List<Integer>> three3Sum(int[] nums, int target) {

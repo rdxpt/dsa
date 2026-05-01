@@ -32,7 +32,7 @@ public class ZeroFilledSubarrays {
                 res += (long) count*(count+1)/2;
             }
         }
-        return res;
+        return (int) res;
     }
 }
 
